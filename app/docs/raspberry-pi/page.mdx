@@ -6,17 +6,23 @@ A Raspberry Pi 4 or 5 with 64-bit Raspberry Pi OS makes a good Cecilia box. It s
 
 ## You need
 
-- a Raspberry Pi 4 or 5 (2 GB or more), its power supply and a 16 GB microSD card;
-- a USB MIDI interface (see [Connecting your organ](/docs/connecting-your-organ/));
-- optionally, a speaker, if you'd like to hear the simulator from the Pi.
+| | Best choice | Also fine |
+| --- | --- | --- |
+| **Raspberry Pi** | Pi 4 Model B, 2 GB or more | Pi 5 (any memory); Pi 3 B+ |
+| **Power** | The official Raspberry Pi USB-C supply: 15 W for a Pi 4, 27 W for a Pi 5 | |
+| **Card** | 32 GB microSD, A1 or A2 rated, from a known brand | |
+| **MIDI** | A USB MIDI interface, or the organ's own USB port (see [Connecting your organ](/docs/connecting-your-organ/)) | |
+| **Sound** | Only to hear the simulator: the Pi 4's headphone socket; a Pi 5 needs a USB sound card | |
+
+Use the official power supply. Phone chargers often can't keep a Pi steady, and a Pi short of power can drop MIDI messages or damage its card.
 
 ## The easy way: a ready-made SD card
 
-Each release includes **cecilia-pi-arm64.img.xz**: Raspberry Pi OS Lite with Cecilia already installed, and nothing else.
+The Cecilia image is Raspberry Pi OS Lite with Cecilia already installed. It shows Cecilia's own start-up screen and keeps itself up to date.
 
-1. Download it from the [releases page](https://github.com/garethcheyne/cecilia/releases).
-2. In **Raspberry Pi Imager**, choose **Use custom** and pick the file.
-3. When Imager offers **OS customisation**, set a username and password (don't keep the defaults, `organist` and `cecilia`) and enter the church Wi-Fi.
+1. In **Raspberry Pi Imager**, open the options and set the content repository to `https://garethcheyne.github.io/cecilia-pi/os_list.json`. (Or download the image from the [cecilia-pi releases](https://github.com/garethcheyne/cecilia-pi/releases) and choose **Use custom**.)
+2. Choose your Pi, then **Cecilia**, then your card.
+3. When Imager offers **OS customisation**, set your own username and password, and enter the church Wi-Fi and your time zone.
 4. Write the card, put it in the Pi and switch on. After a couple of minutes, open **http://cecilia.local:7070** on a phone or laptop on the same network.
 5. In Cecilia's **Settings**, set a **password**. Then set up **MIDI Setup** and **Organs**.
 
