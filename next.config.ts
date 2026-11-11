@@ -23,4 +23,6 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default createMDX({})(nextConfig)
+// Tables and other GitHub-style markdown in the guide. Turbopack needs the
+// plugin named as a string.
+export default createMDX({ options: { remarkPlugins: ["remark-gfm"] } })(nextConfig)
