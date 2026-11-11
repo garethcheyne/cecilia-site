@@ -1,0 +1,35 @@
+export const metadata = { title: "Raspberry Pi" }
+
+# Cecilia on a Raspberry Pi
+
+A Raspberry Pi 4 or 5 with 64-bit Raspberry Pi OS makes a good Cecilia box. It sits at the organ and starts by itself, and anyone on the church Wi-Fi can open Cecilia in a browser.
+
+## You need
+
+- a Raspberry Pi 4 or 5 (2 GB or more), its power supply and a 16 GB microSD card;
+- a USB MIDI interface (see [Connecting your organ](/docs/connecting-your-organ/));
+- optionally, a speaker, if you'd like to hear the simulator from the Pi.
+
+## Install
+
+1. With **Raspberry Pi Imager**, install Raspberry Pi OS (64-bit). In its settings, name the Pi `cecilia`, turn on SSH and enter the Wi-Fi details.
+2. Download the latest `cecilia_..._arm64.deb` from the releases page onto the Pi, then run:
+
+   ```sh
+   sudo apt install ./cecilia_*_arm64.deb
+   ```
+
+3. On a phone or laptop on the same network, open **http://cecilia.local:7070**.
+4. In **Settings**, set a **password**. Then set up **MIDI Setup** and **Organs**.
+
+Cecilia now starts every time the Pi does, and keeps going after a power cut.
+
+## Looking after it
+
+- **Download a backup** from **Settings** now and then, and keep it off the Pi.
+- To update, install the newer `.deb` the same way. Your music and settings are kept.
+- Logs: `journalctl -u cecilia -f`.
+
+## A touchscreen at the console
+
+With the official touchscreen, Chromium can open the Service screen full screen at start-up, and **Larger** text in **Settings** makes it readable at arm's length.

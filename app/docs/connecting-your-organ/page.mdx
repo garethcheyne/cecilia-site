@@ -1,0 +1,30 @@
+export const metadata = { title: "Connecting your organ" }
+
+# Connecting your organ
+
+Cecilia talks to the organ over **MIDI**, through a **USB MIDI interface**: a small box or cable with a USB plug at one end and two round 5-pin MIDI plugs at the other, usually labelled **IN** and **OUT**.
+
+Recommended: Roland UM-ONE mk2, ESI M4U eX, or similar. Cheap unbranded cables often lose messages; it's worth spending a little more.
+
+## Which socket goes where
+
+| On the organ | On the interface | What it's for |
+| --- | --- | --- |
+| MIDI **OUT** (on a Makin: **MIDI SEQ**) | **IN** | Recording what's played |
+| MIDI **IN** | **OUT** | Playing back into the organ |
+
+Then in Cecilia, open **MIDI Setup** and choose the interface as **Organ in** and **Organ out**.
+
+## Makin organs
+
+- Record from **MIDI SEQ** and play into **MIDI IN**.
+- Makin stops *toggle*: the same message pulls a stop out or pushes it in. Cecilia keeps track, but press the organ's **General Cancel** before recording so everyone starts with every stop in.
+- Cecilia includes a **Makin template**. Its stop numbers are guesses until you teach Cecilia your organ: see [Setting up your organ](/docs/your-organ/).
+
+## Hauptwerk
+
+Use a virtual MIDI cable (such as loopMIDI on Windows): Hauptwerk's MIDI out to Cecilia's Organ in, and Cecilia's Organ out to Hauptwerk's MIDI in.
+
+## Checking it works
+
+**MIDI Setup** has a **test recorder**: record a few notes and stops, play them back, and the organ should repeat them exactly. If it doesn't, check the cables and ports before anything else. The **MIDI monitor** shows every message arriving and leaving.

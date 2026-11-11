@@ -1,0 +1,38 @@
+export const metadata = { title: "For developers" }
+
+# For developers
+
+Cecilia is a **Rust** server (MIDI engine, recorder, player, organ drivers) with a **Next.js** web interface and an HTTP and WebSocket API. Everything the interface does goes through the API, so scripts and other apps can do it too.
+
+## Building from source
+
+```sh
+git clone https://github.com/garethcheyne/cecilia
+cd cecilia/web && npm ci && npm run build
+cd ../server && cargo run --release
+# open http://127.0.0.1:7070
+```
+
+You'll need Rust (stable) and Node.js 22. On Linux, also `libasound2-dev`.
+
+## Tests
+
+```sh
+node scripts/test-all.mjs
+```
+
+This runs the Rust unit and integration tests (real servers driving the simulator over HTTP), the web unit tests, and browser tests at desktop and phone sizes.
+
+## The API
+
+The OpenAPI document is at `/api/v1/openapi.json` on any running Cecilia. Live events (MIDI, the player, the recorder, the service) stream over the WebSocket at `/api/v1/events`. An MCP server for AI assistants is at `/mcp`.
+
+## Organ drivers
+
+Organ setups are JSON: keyboards, stops, and MIDI patterns like `B1 0B vv`. The generic driver covers most organs; makers with stateful MIDI (Rodgers, Allen) need a driver. Research notes for each maker are in the repository's `docs/DRIVERS-RESEARCH.md`, and help from owners of those organs is very welcome.
+
+## Repositories
+
+- [cecilia](https://github.com/garethcheyne/cecilia): the app
+- [cecilia-library](https://github.com/garethcheyne/cecilia-library): shared music and organ setups
+- [cecilia-site](https://github.com/garethcheyne/cecilia-site): this website and guide
