@@ -10,17 +10,25 @@ A Raspberry Pi 4 or 5 with 64-bit Raspberry Pi OS makes a good Cecilia box. It s
 - a USB MIDI interface (see [Connecting your organ](/docs/connecting-your-organ/));
 - optionally, a speaker, if you'd like to hear the simulator from the Pi.
 
-## Install
+## The easy way: a ready-made SD card
 
-1. With **Raspberry Pi Imager**, install Raspberry Pi OS (64-bit). In its settings, name the Pi `cecilia`, turn on SSH and enter the Wi-Fi details.
-2. Download the latest `cecilia_..._arm64.deb` from the releases page onto the Pi, then run:
+Each release includes **cecilia-pi-arm64.img.xz**: Raspberry Pi OS Lite with Cecilia already installed, and nothing else.
 
-   ```sh
-   sudo apt install ./cecilia_*_arm64.deb
-   ```
+1. Download it from the [releases page](https://github.com/garethcheyne/cecilia/releases).
+2. In **Raspberry Pi Imager**, choose **Use custom** and pick the file.
+3. When Imager offers **OS customisation**, set a username and password (don't keep the defaults, `organist` and `cecilia`) and enter the church Wi-Fi.
+4. Write the card, put it in the Pi and switch on. After a couple of minutes, open **http://cecilia.local:7070** on a phone or laptop on the same network.
+5. In Cecilia's **Settings**, set a **password**. Then set up **MIDI Setup** and **Organs**.
 
-3. On a phone or laptop on the same network, open **http://cecilia.local:7070**.
-4. In **Settings**, set a **password**. Then set up **MIDI Setup** and **Organs**.
+## Or: one command on a Pi you already have
+
+On Raspberry Pi OS (Lite is enough), run:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/garethcheyne/cecilia/main/packaging/install.sh | sudo sh
+```
+
+It installs the latest Cecilia, names the Pi `cecilia` on the network, and tells you the address to open.
 
 Cecilia now starts every time the Pi does, and keeps going after a power cut.
 
