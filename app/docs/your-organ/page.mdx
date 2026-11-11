@@ -2,11 +2,33 @@ export const metadata = { title: "Setting up your organ" }
 
 # Setting up your organ
 
-Cecilia needs to know your organ: its keyboards, its stops, and the MIDI message each one sends. That's an **organ setup**.
+Cecilia needs to know your organ: its keyboards, its stops, and the MIDI message each one sends (the signal the organ gives out when a stop is pulled out or pushed in). That's an **organ setup**.
 
-## Start from the closest one
+## Find your organ
 
-Open **Organs**. Find your organ (or the closest template, such as **Makin 2-manual**) and press **Copy to set up**. Give it a name, and Cecilia opens it for editing. Press **Use this organ** to make it the one Cecilia talks to.
+Open **Organs** and press **Find my organ**.
+
+1. **Who made your organ?** The maker's name is usually on the console, above the top keyboard. You can also type the model straight away, for example *Studio 170*.
+2. **Which model?** Models are grouped by series (for example Johannus *Studio* and *Opus*). The model is often on a plate by the keys, or in the owner's manual.
+3. **Which version?** Only asked when a model was made in more than one form, for example *built 2010 onwards*.
+4. **Check the stops** against your console, and read *Before you start*.
+5. Press **Add and use this organ**, or **Add only** to look at it first.
+
+There are about 200 setups so far, from Johannus, Makin, Allen, Viscount, Rodgers, Content, Wyvern, Ahlborn, Ahlborn-Galanti, Eminent and Phoenix. Each one says how far it's been tested:
+
+- **Template:** made from the maker's published stop list.
+- **Learned:** every stop captured on a real organ of that model.
+- **Verified:** learned, then tested with playback.
+
+**A template still needs learning.** Makers publish their stop lists, but not the MIDI message each stop sends. So the stops, keyboards and pitches are right, but Cecilia doesn't yet know which message means which stop. Use *Learn every stop* below; it only takes a few minutes. Then share your setup, so the next church with that model doesn't have to.
+
+**Allen organs** can't be learned yet: they send every stop change in a form Cecilia can't tell apart. Support is on its way.
+
+## Not listed?
+
+Start from the closest one. On **Organs**, press **Make a copy** on the nearest organ (such as **Makin 2-manual (template)** for a Makin), give it a name, and Cecilia opens it for editing. Press **Use this organ** to make it the one Cecilia talks to.
+
+The built-in organs can't be changed. Opening one shows a **Make my own copy** button instead.
 
 ## Learn every stop
 
@@ -17,7 +39,7 @@ This is the important part, and it takes about ten minutes at the console:
 3. For each stop Cecilia names, **pull it out**, then **push it in**. Cecilia moves to the next by itself.
 4. Press **Skip** for anything it doesn't need, and **Save** at the end.
 
-A tablet or phone at the console makes this easy.
+A tablet or phone at the console makes this easy. Each stop then shows **Learned**.
 
 ## Keyboards and pedals
 
@@ -31,4 +53,8 @@ On **Keyboards and pedals**:
 
 The pencil beside a stop changes its name lines, what kind of stop it is (family and pitch, or which keyboard a coupler brings in), its shape, and its MIDI in hex, for anyone who knows their organ's MIDI chart.
 
-Cecilia checks every setup when you save, and tells you plainly if two controls would answer the same message.
+Cecilia checks every setup when you save, and tells you plainly if two controls would answer the same message. The label beside **Save** shows **Saved** or **Unsaved changes**.
+
+## Share it
+
+Once every stop is learned, press **Share with other churches** so others with the same model can use it. See [Sharing music and organs](/docs/sharing/).

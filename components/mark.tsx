@@ -15,7 +15,15 @@ export function Mark({ className = "size-6" }: { className?: string }) {
           <path d={`M${x - 2.5} 21 h5 l-1.7 6 h-1.6 z`} opacity={0.85} />
         </g>
       ))}
-      <rect x={2} y={27} width={28} height={2} rx={0.5} fill="currentColor" opacity={0.6} />
+      <rect
+        x={2}
+        y={27}
+        width={28}
+        height={2}
+        rx={0.5}
+        fill="currentColor"
+        opacity={0.6}
+      />
     </svg>
   )
 }

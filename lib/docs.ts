@@ -1,5 +1,8 @@
 /** The guide's table of contents, in reading order. */
-export const DOCS: { section: string; pages: { href: string; title: string }[] }[] = [
+export const DOCS: {
+  section: string
+  pages: { href: string; title: string }[]
+}[] = [
   {
     section: "Start here",
     pages: [

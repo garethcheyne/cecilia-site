@@ -6,8 +6,22 @@ import { CATALOGUE, LIBRARY_REPO } from "@/lib/site"
 export const metadata: Metadata = { title: "Library" }
 
 interface Catalogue {
-  music: { id: string; title: string; composer: string; melody: string; licence: string; tags: string[]; verses: number; duration_ms: number }[]
-  organs: { id: string; name: string; meta: { maker: string; model: string; confidence: string }; stops: number }[]
+  music: {
+    id: string
+    title: string
+    composer: string
+    melody: string
+    licence: string
+    tags: string[]
+    verses: number
+    duration_ms: number
+  }[]
+  organs: {
+    id: string
+    name: string
+    meta: { maker: string; model: string; confidence: string }
+    stops: number
+  }[]
 }
 
 const CONFIDENCE: Record<string, string> = {
@@ -26,16 +40,23 @@ async function load(): Promise<Catalogue | null> {
   }
 }
 
-const clock = (ms: number) => `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2, "0")}`
+const clock = (ms: number) =>
+  `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2, "0")}`
 
 export default async function Library() {
   const cat = await load()
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
-      <h1 className="font-display text-4xl font-semibold sm:text-5xl">The shared library</h1>
+      <h1 className="font-display text-4xl font-semibold sm:text-5xl">
+        The shared library
+      </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">
-        Music and organ setups shared by Cecilia users. Add any of them from inside Cecilia, or{" "}
-        <Link href="/docs/sharing/" className="text-glass underline underline-offset-4">
+        Music and organ setups shared by Cecilia users. Add any of them from
+        inside Cecilia, or{" "}
+        <Link
+          href="/docs/sharing/"
+          className="text-glass underline underline-offset-4"
+        >
           share your own
         </Link>
         .
@@ -53,15 +74,23 @@ export default async function Library() {
           <h2 className="mt-14 font-display text-2xl font-semibold">Music</h2>
           <ul className="mt-4 divide-y divide-line rounded-2xl border border-line bg-card">
             {cat.music.map((m) => (
-              <li key={m.id} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4">
-                <span className="font-display text-lg font-semibold">{m.title}</span>
-                <span className="text-sm text-muted">{[m.melody, m.composer].filter(Boolean).join(" · ")}</span>
+              <li
+                key={m.id}
+                className="flex flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-4"
+              >
+                <span className="font-display text-lg font-semibold">
+                  {m.title}
+                </span>
+                <span className="text-sm text-muted">
+                  {[m.melody, m.composer].filter(Boolean).join(" · ")}
+                </span>
                 <span className="ml-auto text-sm text-muted tabular-nums">
                   {m.verses > 1 ? `${m.verses} verses · ` : ""}
                   {clock(m.duration_ms)}
                 </span>
                 <span className="w-full text-xs text-muted">
-                  {m.tags.join(", ")} · {m.licence === "public-domain" ? "Public domain" : m.licence}
+                  {m.tags.join(", ")} ·{" "}
+                  {m.licence === "public-domain" ? "Public domain" : m.licence}
                 </span>
               </li>
             ))}
@@ -74,7 +103,8 @@ export default async function Library() {
                   {o.meta.maker} {o.meta.model}
                 </span>
                 <span className="text-sm text-muted">
-                  {o.stops} stops · {CONFIDENCE[o.meta.confidence] ?? o.meta.confidence}
+                  {o.stops} stops ·{" "}
+                  {CONFIDENCE[o.meta.confidence] ?? o.meta.confidence}
                 </span>
               </li>
             ))}
